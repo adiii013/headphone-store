@@ -18,7 +18,7 @@ function App() {
   const auth = async () => {
     const token = localStorage.getItem('token');
     if (token) {
-      const response = await axios.get('http://localhost:5000/users/verify', {
+      const response = await axios.get('https://headphone-store.onrender.com/users/verify', {
         headers: {
           'Authorization': token,
         }
@@ -36,7 +36,7 @@ function App() {
   }
 
   const loadProducts = async () => {
-    const productdata = await axios.get('http://localhost:5000/product');
+    const productdata = await axios.get('https://headphone-store.onrender.com/product');
     const productsData = productdata.data
     const data = {
       productsData: productsData,
@@ -48,7 +48,7 @@ function App() {
   const loadCart = async () => {
     const token = localStorage.getItem('token');
     if (token) {
-      const response = await axios.get('http://localhost:5000/users/verify', {
+      const response = await axios.get('https://headphone-store.onrender.com/users/verify', {
         headers: {
           'Authorization': token,
         }

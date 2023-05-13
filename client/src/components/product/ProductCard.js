@@ -15,7 +15,7 @@ function ProductCard({ product }) {
     try {
       const token = localStorage.getItem('token');
       if (token && user) {
-        await axios.post('http://localhost:5000/product/cart',{
+        await axios.post('https://headphone-store.onrender.com/product/cart',{
           productid:product.productid
         }, {
           headers: {
