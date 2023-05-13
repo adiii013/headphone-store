@@ -1,0 +1,29 @@
+.filter__container{
+    margin-left: 80px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    gap:40px;
+}
+
+.view__container{
+    display: flex;
+    flex-direction: row;
+    gap:20px;
+}
+
+.filter__item{
+    background: #D9D9D9;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: white;
+}
+
+
+@media (max-width: 640px) {
+    .filter__container{
+        overflow: scroll;
+        margin-left: 20px;
+    }
+}

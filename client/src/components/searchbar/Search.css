@@ -1,0 +1,24 @@
+.search__bar__container{
+    margin-top:20px;
+    margin-left: 80px;
+    margin-right: 80px;
+    border: 2px solid rgb(183, 177, 177);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.search__bar__container > input {
+    border: none;
+    text-decoration: none;
+    width: 80%;
+    font-size: 20px;
+}
+
+.search__icon{
+    color: gray;
+    font-size: 20px;
+}
+
+.search__bar__container > input:focus{
+    outline: none;
+}
