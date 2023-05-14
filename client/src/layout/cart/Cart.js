@@ -5,11 +5,11 @@ import CartDesktop from './CartDesktop'
 
 function Cart() {
     const [width, setWidth] = React.useState(window.innerWidth);
-    const breakpoint = 620;
+    const breakpoint = 650;
     React.useEffect(() => {
       window.addEventListener("resize", () => setWidth(window.innerWidth));
     }, []);
-  
+  console.log(width);
     
     return width < breakpoint ? <CartMobile /> : <CartDesktop />;
 }

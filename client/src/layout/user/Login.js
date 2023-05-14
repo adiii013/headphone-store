@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import Logo from '../../images/logo.png'
 import './Login.css'
 import Footer from './Footer'
-import { Link } from 'react-router-dom'
+import { Link ,useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
 import Loading from '../../components/loading/loading'
 import {useDispatch} from 'react-redux'
 import { Authorization } from '../../features/userSlice'
@@ -41,7 +40,7 @@ function Login() {
                     login:true,
                 }
                 dispatch(Authorization(userData))
-                navigate('/')
+                navigate('/',{replace:true})
             }
             setLoading(false)
         }catch(e){
@@ -53,8 +52,6 @@ function Login() {
       return (
         <>
         <div className='login'>
-
-        
             <div className="logo__container">
                 <img src={Logo} alt="" className="logo" />
                 <p>Music Cart</p>

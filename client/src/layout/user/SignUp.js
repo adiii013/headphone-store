@@ -30,7 +30,7 @@ function SignUp() {
                 console.log(response.data.msg);
             }
             else{
-                navigate('/login')
+                navigate('/login',{replace:true})
             }
             setLoading(false)
         }catch(e){

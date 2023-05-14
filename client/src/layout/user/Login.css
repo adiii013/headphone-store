@@ -5,7 +5,7 @@
 }
 
 .login{
-    height: 100vmax;
+    min-height: 100vmin;
 }
 
 .login__container{
@@ -91,9 +91,8 @@
 }
 
 footer{
-    position: absolute;
-    margin-top: 50px;
-    bottom: 0;
+    position:fixed;
+    bottom: 0px;
     background: #2E0052;
     color: white;
     font-weight: bold;

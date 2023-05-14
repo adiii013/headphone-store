@@ -1,22 +1,18 @@
 import React from 'react'
-import Logo from '../../images/logo.png'
-import './Path.css'
-import {BsCart4} from 'react-icons/bs'
-import { useNavigate } from 'react-router-dom'
+import PathDesktop from './PathDesktop'
+
 
 function Path() {
-  const navigate = useNavigate()
-  return (
-    <div className='path__container'>
+  const [width, setWidth] = React.useState(window.innerWidth);
+  const breakpoint = 620;
 
-    <div className="logo__path__container">
-        <img src={Logo} alt="" />
-        <p className='logo__text'>Musicart</p>
-        <p>Home</p>
-    </div>
-    <button onClick={()=>navigate('/cart')}><BsCart4 /> View Cart</button>
-    </div>
-  )
+  React.useEffect(() => {
+    window.addEventListener("resize", () => setWidth(window.innerWidth));
+  }, []);
+
+  
+  return width < breakpoint ? <div /> : <PathDesktop />;
+
 }
 
 export default Path

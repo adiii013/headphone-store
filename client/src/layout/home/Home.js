@@ -12,13 +12,19 @@ import Loading from '../../components/loading/loading'
 function Home() {
   
   const products = useSelector((state)=>state.products)
-
+  const [width, setWidth] = React.useState(window.innerWidth);
+    const breakpoint = 650;
+    React.useEffect(() => {
+      window.addEventListener("resize", () => setWidth(window.innerWidth));
+    }, []);
   return (
     <>  
         <Header/>
         <Path/>
         <Advertise/>
-        <Search/>
+        {
+          (width < breakpoint) ? <div/> : <Search/>
+        }
         <FilterComponent/>
         <div className="home__products">
           {

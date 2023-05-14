@@ -4,17 +4,24 @@ import Login from './layout/user/Login';
 import SignUp from './layout/user/SignUp';
 import Home from './layout/home/Home';
 import ViewProduct from './layout/product/ViewProduct';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Authorization } from './features/userSlice'
 import { useDispatch } from 'react-redux'
 import axios from 'axios';
 import { AddProducts } from './features/productSlice';
 import Cart from './layout/cart/Cart';
 import { SetCart } from './features/cartSlice';
-
+import './nav.css'
+import Nav from './components/nav/Nav';
 
 function App() {
   const dispatch = useDispatch();
+  const[activeNav,setActiveNav] = useState('/')
+
+  const [width, setWidth] = useState(window.innerWidth);
+  const breakpoint = 650;
+
+
   const auth = async () => {
     const token = localStorage.getItem('token');
     if (token) {
@@ -61,6 +68,7 @@ function App() {
   }
 
   useEffect(() => {
+    window.addEventListener("resize", () => setWidth(window.innerWidth));
     auth();
     loadProducts();
     loadCart();
@@ -69,7 +77,7 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
+    <BrowserRouter>
         <Routes>
           <Route path='login/' element={<Login />}></Route>
           <Route path='signup/' element={<SignUp />}></Route>
@@ -77,7 +85,11 @@ function App() {
           <Route path='/product/:id' element={<ViewProduct />}></Route>
           <Route path='/cart' element={<Cart />} />
         </Routes>
+  {
+    (width < breakpoint) ? <Nav activeNav={activeNav} setActiveNav={setActiveNav}/> : <div/>
+  }
       </BrowserRouter>
+      
     </div>
   );
 }
