@@ -32,6 +32,7 @@ function Home() {
             products.productList.map((product)=><ProductCard product={product}/>)
           }
           </div>
+          <div className="gap"></div>
     </>
   )
 }

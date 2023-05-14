@@ -16,7 +16,7 @@ import Nav from './components/nav/Nav';
 
 function App() {
   const dispatch = useDispatch();
-  const[activeNav,setActiveNav] = useState('/')
+  const[activeNav,setActiveNav] = useState('/home')
 
   const [width, setWidth] = useState(window.innerWidth);
   const breakpoint = 650;
@@ -81,7 +81,7 @@ function App() {
         <Routes>
           <Route path='login/' element={<Login />}></Route>
           <Route path='signup/' element={<SignUp />}></Route>
-          <Route path='/' element={<Home />}></Route>
+          <Route path='/home' element={<Home />}></Route>
           <Route path='/product/:id' element={<ViewProduct />}></Route>
           <Route path='/cart' element={<Cart />} />
         </Routes>
@@ -89,7 +89,6 @@ function App() {
     (width < breakpoint) ? <Nav activeNav={activeNav} setActiveNav={setActiveNav}/> : <div/>
   }
       </BrowserRouter>
-      
     </div>
   );
 }

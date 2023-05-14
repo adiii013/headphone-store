@@ -23,9 +23,6 @@ function HeaderDesktop() {
     navigate('/login')
   }
 
-  const signup = ()=>{
-    navigate('/signup')
-  }
 
   return (
     <div className="header__container">

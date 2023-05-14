@@ -1,0 +1,28 @@
+.header__container{
+    background: #2E0052;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 0;
+    color: white;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.search__bar__header{
+    margin: 15px;
+    padding: 5px;
+    width: 80%;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.search__bar__header > input {
+    width: 80%;
+    border: none;
+}
+
+.header__search__input :focus{
+    outline: 0;
+    border: none;
+}

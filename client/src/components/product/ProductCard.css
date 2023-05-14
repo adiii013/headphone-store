@@ -26,8 +26,10 @@
 }
 
 
+
 .product__card__detail > p {
     padding: 0;
+    margin: 0;
     font-weight: bold;
 }
 
@@ -35,6 +37,11 @@
     .product__image{
         width: 100px;
         height: 100px;
+    }
+
+    .product__cart__detail > p{
+        margin:5px;
+        font-weight: 500;
     }
     
     .product__card__container{

@@ -26,7 +26,7 @@ function Login() {
         e.preventDefault();
         setLoading(true)
         try{
-            const response = await axios.post('http://localhost:5000/users/login',user);
+            const response = await axios.post('https://headphone-store.onrender.com/users/login',user);
             if(response.data.success === 'false'){
                 console.log(response.data.msg);
             }
@@ -40,7 +40,7 @@ function Login() {
                     login:true,
                 }
                 dispatch(Authorization(userData))
-                navigate('/',{replace:true})
+                navigate('/home',{replace:true})
             }
             setLoading(false)
         }catch(e){

@@ -40,8 +40,8 @@ function ProductCard({ product }) {
       </div>
       <div className="product__cart__detail">
         <p>{product.name}</p>
-        <p>{product.price}</p>
-        <p>{product.productName}</p>
+        <p>Price - {product.price}₹</p>
+        <p>{product.color} | {product.headphoneType}</p>
       </div>
     </div>
   )
