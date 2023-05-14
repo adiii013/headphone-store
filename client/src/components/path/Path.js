@@ -2,7 +2,7 @@ import React from 'react'
 import PathDesktop from './PathDesktop'
 
 
-function Path() {
+function Path({path}) {
   const [width, setWidth] = React.useState(window.innerWidth);
   const breakpoint = 620;
 
@@ -11,7 +11,7 @@ function Path() {
   }, []);
 
   
-  return width < breakpoint ? <div /> : <PathDesktop />;
+  return width < breakpoint ? <div /> : <PathDesktop path={path}/>;
 
 }
 

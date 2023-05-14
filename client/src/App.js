@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Login from './layout/user/Login';
 import SignUp from './layout/user/SignUp';
 import Home from './layout/home/Home';
@@ -79,6 +79,7 @@ function App() {
     <div className="App">
     <BrowserRouter>
         <Routes>
+          <Route path='/' element={<Navigate to='/home'/>}/>
           <Route path='login/' element={<Login />}></Route>
           <Route path='signup/' element={<SignUp />}></Route>
           <Route path='/home' element={<Home />}></Route>

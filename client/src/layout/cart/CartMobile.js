@@ -14,15 +14,19 @@ function CartMobile() {
     // console.log(product);
     // console.log(cart);
     const [cartData,setCartData]= useState([]);
+    const [total,setTotal] = useState(0)
     useEffect(()=>{
         const productData = [];
+        let totalData = total;
        cart.forEach(cartProduct => {
          product.forEach(orgProduct =>{
             if(cartProduct.productid===orgProduct.productid){
                 productData.push(orgProduct);
+                totalData += parseInt(orgProduct.price);
             }
          })
        });
+       setTotal(totalData)
        setCartData(productData)
        console.log(cartData);
     },[])
@@ -32,33 +36,28 @@ function CartMobile() {
         <>
             <Header />
             <Path />
-            <button className='back__to__products' onClick={() => navigate('/', { replace: true })}>Back to products</button>
-            <p className="cart__container__heading">
-                <AiOutlineShoppingCart className='cart__container__icon' size={40} /> My Cart
+            <button className='back__to__products__mb' onClick={() => navigate('/', { replace: true })}>Back to products</button>
+            <p className="cart__container__heading__mb">
+                <AiOutlineShoppingCart className='cart__container__icon__mb' size={40} /> My Cart
             </p>
-            <div className="cart__container">
-                <div className="cart__container__products__container">
+            <div className="cart__container__mb">
+                <div className="cart__container__products__container__mb">
                     <hr />
                     {
-                        cartData.map((product) => <div key={product.productid} className="cart__container__products">
-                            <img src={image_url} alt="" className="cart__container__product__image" />
-                            <div className="cart__container__product__abc">
-                            <div className="cart__container__products__subtext">
-                                <p className='cart__container__product__subtext__heading'>{product.name}</p>
-                                <p>Color</p>
-                                <p>Instock</p>
+                        cartData.map((product) => <div key={product.productid} className="cart__container__products__mb">
+                            <img src={image_url} alt="" className="cart__container__product__image__mb" />
+                            <div className="cart__container__product__abc__mb">
+                            <div className="cart__container__products__subtext__mb">
+                                <p className='cart__container__product__subtext__heading__mb'>{product.name}</p>
                             </div>
-                            <div className="cart__container__products__subtext">
-                                <p className='cart__container__product__subtext__heading'>Price</p>
-                                <p>Color</p>
+                            <div className="cart__container__products__subtext__mb">
+                                <p className='cart__container__product__subtext__heading__mb'>Color = {product.color}</p>
                             </div>
-                            <div className="cart__container__products__subtext">
-                                <p className='cart__container__product__subtext__heading'>Quantity</p>
-                                <p>Color</p>
+                            <div className="cart__container__products__subtext__mb">
+                                <p className='cart__container__product__subtext__heading__mb'>Quantity = 1</p>
                             </div>
-                            <div className="cart__container__products__subtext">
-                                <p className='cart__container__product__subtext__heading'>Total</p>
-                                <p>Color</p>
+                            <div className="cart__container__products__subtext__mb">
+                                <p className='cart__container__product__subtext__heading__mb'>Total = {product.price}</p>
                             </div>
                             </div>
                         </div>)
@@ -67,9 +66,9 @@ function CartMobile() {
                     <hr />
                 </div>
                 
-                <div className="cart__container__total">
-                    <p className='cart__container__total__text'>Total Amount</p>
-                    <button className='place__order' >Place Order</button>
+                <div className="cart__container__total__mb">
+                    <p className='cart__container__total__text__mb'>Total Amount - {total}₹</p>
+                    <button className='place__order__mb' >Place Order</button>
                 </div>
             </div>
         </>

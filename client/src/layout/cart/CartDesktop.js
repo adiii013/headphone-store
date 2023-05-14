@@ -29,7 +29,7 @@ function CartDesktop() {
     return (
         <>
             <Header />
-            <Path />
+            <Path path={'Home/Cart'}/>
             <button className='back__to__products' onClick={() => navigate('/', { replace: true })}>Back to products</button>
             <p className="cart__container__heading">
                 <AiOutlineShoppingCart className='cart__container__icon' size={40} /> My Cart

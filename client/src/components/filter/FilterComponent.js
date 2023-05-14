@@ -4,12 +4,12 @@ import './FilterComponent.css'
 import {BsFillGridFill} from 'react-icons/bs'
 import {FaThList} from 'react-icons/fa'
 
-function FilterComponent() {
+function FilterComponent({listView,setListView}) {
   return (
     <div className='filter__container'>
     <div className="view__container">
-    <BsFillGridFill />
-    <FaThList />
+    <BsFillGridFill color={(listView ? 'black' : 'blue')}  onClick={()=>setListView(false)}/>
+    <FaThList color={(listView ? 'blue' : 'black')} onClick={()=>setListView(true)}/>
     </div> 
       <select name="Headphone Type"  id="" className='filter__item'>
         <option defaultChecked value="">Headphone Type</option>
